@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+       - echo Build Completed on 'date'
+       - mvn clean test package
+       - echo build is completed
+  artifacts:
+    files:
+      - '**/*'
