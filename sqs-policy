@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Id": "example-ID",
+    "Statement": [
+        {
+            "Sid": "example-statement-ID",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": [
+                "SQS:SendMessage"
+            ],
+            "Resource": "arn:aws:sqs:us-east-1:355496310271:gopal-event-froms3",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:s3:*:*:gopal-original-image"
+                },
+                "StringEquals": {
+                    "aws:SourceAccount": "355496310271"
+                }
+            }
+        }
+    ]
+}
